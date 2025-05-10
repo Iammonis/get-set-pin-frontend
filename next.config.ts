@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+    images: {
+        domains: ['avatar.iran.liara.run'],
+      },
+};
 
 export default nextConfig;
