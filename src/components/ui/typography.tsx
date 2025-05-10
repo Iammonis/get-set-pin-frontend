@@ -26,20 +26,20 @@ type TypographyProps = {
 
 const textVariants = {
   default: "text-sm",
-  p: "text-base leading-7 text-current-font-size tracking-wide",
-  text: "text-sm text-current-font-size tracking-wide",
-  h1: "text-3xl font-extrabold leading-tight tracking-wide md:text-4xl lg:text-5xl",
-  h2: "text-2xl font-bold leading-snug tracking-wide md:text-3xl lg:text-4xl",
-  h3: "text-xl font-semibold leading-snug tracking-wide md:text-2xl lg:text-3xl",
-  h4: "text-lg font-semibold leading-normal tracking-wide md:text-xl lg:text-2xl",
-  h5: "text-md font-semibold leading-normal tracking-wide md:text-lg lg:text-xl",
-  h6: "text-md font-semibold tracking-wide md:text-lg lg:text-xl",
+  p: "text-base leading-7 text-current-font-size tracking-tight",
+  text: "text-sm text-current-font-size tracking-tight",
+  h1: "text-3xl font-extrabold leading-tight tracking-tight md:text-4xl lg:text-5xl",
+  h2: "text-2xl font-bold leading-snug tracking-tight md:text-3xl lg:text-4xl",
+  h3: "text-xl font-semibold leading-snug tracking-tight md:text-2xl lg:text-3xl",
+  h4: "text-lg font-semibold leading-normal tracking-tight md:text-xl lg:text-2xl",
+  h5: "text-md font-semibold leading-normal tracking-tight md:text-lg lg:text-xl",
+  h6: "text-md font-semibold tracking-tight md:text-lg lg:text-xl",
   span: "text-sm",
   blockquote: "border-l-4 border-gray-300 pl-4 italic",
   code: "font-mono text-sm bg-gray-100 px-1 rounded",
   caption: "text-xs",
   label: "text-sm font-medium",
-  button: "text-sm font-medium uppercase tracking-wide",
+  button: "text-sm font-medium uppercase tracking-tight",
 } as const;
 
 const variantToTag: Record<TextVariant, ValidHtmlTags> = {
@@ -72,4 +72,4 @@ const Typography = ({ type = "p", children, className }: TypographyProps) => {
   );
 };
 
-export default Typography;
+export { Typography, textVariants };
