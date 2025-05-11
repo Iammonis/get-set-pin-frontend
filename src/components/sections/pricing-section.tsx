@@ -26,6 +26,213 @@ interface FeatureComparison {
   professional: boolean | string;
 }
 
+const plans: Plan[] = [
+  {
+    id: "free",
+    name: "Free",
+    price: {
+      monthly: 0,
+      yearly: 0,
+    },
+    description: "Perfect for individuals or new users just getting started",
+    features: [
+      "Unlimited Pinterest accounts & websites",
+      "35 pins/day (1000/month)",
+      "Unlimited regenerations",
+      "50 AI Pins per month",
+      "1 underperforming pin delete/day",
+      "Unlimited AI text & board generation",
+      "Standard support",
+      "Analytics dashboard with basic reports",
+      "Access to top pins, boards & URL analytics",
+      "Template Library access",
+      "Custom Template upload",
+    ],
+    cta: "Get Started",
+  },
+  {
+    id: "starter",
+    name: "Starter",
+    price: {
+      monthly: 29,
+      yearly: 25,
+    },
+    description: "Perfect for small teams scaling Pinterest automation",
+    features: [
+      "Unlimited Pinterest accounts & websites",
+      "350 pins/day (10000/month)",
+      "Unlimited regenerations",
+      "150 AI Pins per month",
+      "12 underperforming pins delete/day",
+      "Unlimited AI text & board generation",
+      "Priority support",
+      "Analytics dashboard with extended insights",
+      "Color, Template, Resolution analytics",
+      "Top pins, boards & URL analytics",
+      "Template Library access",
+      "Upload custom fonts",
+      "Custom Template upload",
+    ],
+    cta: "Get Started",
+  },
+  {
+    id: "professional",
+    name: "Professional",
+    price: {
+      monthly: 79,
+      yearly: 69,
+    },
+    description: "For growing businesses that need power features",
+    features: [
+      "Unlimited Pinterest accounts & websites",
+      "1000 pins/day (30000/month)",
+      "Unlimited regenerations",
+      "500 AI Pins per month",
+      "12 underperforming pins delete/day",
+      "Unlimited AI text & board generation",
+      "Auto-create pins daily",
+      "Urgent support",
+      "30min Pinterest strategy call",
+      "Team member invite (coming soon)",
+      "Full analytics: Color, Template, Resolution & more",
+      "Upload custom fonts",
+      "Upload custom templates",
+      "Template Library access",
+    ],
+    featured: true,
+    cta: "Get Started",
+  },
+];
+
+const featureComparison: FeatureComparison[] = [
+  {
+    name: "Pinterest Accounts",
+    free: "Unlimited",
+    starter: "Unlimited",
+    professional: "Unlimited",
+  },
+  {
+    name: "Websites",
+    free: "Unlimited",
+    starter: "Unlimited",
+    professional: "Unlimited",
+  },
+  {
+    name: "Scheduled Pins per day",
+    free: "35 pins/day (1000/month)",
+    starter: "350 pins/day (10000/month)",
+    professional: "1000 pins/day (30000/month)",
+  },
+  {
+    name: "Regenerations",
+    free: "Unlimited",
+    starter: "Unlimited",
+    professional: "Unlimited",
+  },
+  {
+    name: "AI Pins per month",
+    free: "50",
+    starter: "150",
+    professional: "500",
+  },
+  {
+    name: "Delete underperforming pins",
+    free: "1 pin/day",
+    starter: "12 pins/day",
+    professional: "12 pins/day",
+  },
+  {
+    name: "AI Text & Board Generation",
+    free: "Unlimited",
+    starter: "Unlimited",
+    professional: "Unlimited",
+  },
+  {
+    name: "Auto-Create Pins daily",
+    free: false,
+    starter: false,
+    professional: true,
+  },
+  {
+    name: "Support",
+    free: "Standard",
+    starter: "Priority Support",
+    professional: "Urgent Support",
+  },
+  {
+    name: "Pinterest strategy call",
+    free: false,
+    starter: false,
+    professional: "30min Pinterest strategy call",
+  },
+  {
+    name: "Invite Team Members",
+    free: false,
+    starter: false,
+    professional: "Coming soon",
+  },
+  {
+    name: "Analytics Dashboard",
+    free: true,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "Top Pins",
+    free: true,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "Top Boards",
+    free: true,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "URL Analytics",
+    free: true,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "Template Analytics",
+    free: false,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "Color Analytics",
+    free: false,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "Resolution Analytics",
+    free: false,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "Template Library",
+    free: true,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "Upload Custom Fonts",
+    free: false,
+    starter: true,
+    professional: true,
+  },
+  {
+    name: "Upload Custom Template",
+    free: true,
+    starter: true,
+    professional: true,
+  },
+];
+
 export function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
     "monthly"
@@ -33,212 +240,6 @@ export function PricingSection() {
   const [highlightedPlan, setHighlightedPlan] = useState<string | null>(
     "professional"
   );
-  const plans: Plan[] = [
-    {
-      id: "free",
-      name: "Free",
-      price: {
-        monthly: 0,
-        yearly: 0,
-      },
-      description: "Perfect for individuals or new users just getting started",
-      features: [
-        "Unlimited Pinterest accounts & websites",
-        "35 pins/day (1000/month)",
-        "Unlimited regenerations",
-        "50 AI Pins per month",
-        "1 underperforming pin delete/day",
-        "Unlimited AI text & board generation",
-        "Standard support",
-        "Analytics dashboard with basic reports",
-        "Access to top pins, boards & URL analytics",
-        "Template Library access",
-        "Custom Template upload",
-      ],
-      cta: "Get Started",
-    },
-    {
-      id: "starter",
-      name: "Starter",
-      price: {
-        monthly: 29,
-        yearly: 25,
-      },
-      description: "Perfect for small teams scaling Pinterest automation",
-      features: [
-        "Unlimited Pinterest accounts & websites",
-        "350 pins/day (10000/month)",
-        "Unlimited regenerations",
-        "150 AI Pins per month",
-        "12 underperforming pins delete/day",
-        "Unlimited AI text & board generation",
-        "Priority support",
-        "Analytics dashboard with extended insights",
-        "Color, Template, Resolution analytics",
-        "Top pins, boards & URL analytics",
-        "Template Library access",
-        "Upload custom fonts",
-        "Custom Template upload",
-      ],
-      cta: "Get Started",
-    },
-    {
-      id: "professional",
-      name: "Professional",
-      price: {
-        monthly: 79,
-        yearly: 69,
-      },
-      description: "For growing businesses that need power features",
-      features: [
-        "Unlimited Pinterest accounts & websites",
-        "1000 pins/day (30000/month)",
-        "Unlimited regenerations",
-        "500 AI Pins per month",
-        "12 underperforming pins delete/day",
-        "Unlimited AI text & board generation",
-        "Auto-create pins daily",
-        "Urgent support",
-        "30min Pinterest strategy call",
-        "Team member invite (coming soon)",
-        "Full analytics: Color, Template, Resolution & more",
-        "Upload custom fonts",
-        "Upload custom templates",
-        "Template Library access",
-      ],
-      featured: true,
-      cta: "Get Started",
-    },
-  ];
-
-  const featureComparison: FeatureComparison[] = [
-    {
-      name: "Pinterest Accounts",
-      free: "Unlimited",
-      starter: "Unlimited",
-      professional: "Unlimited",
-    },
-    {
-      name: "Websites",
-      free: "Unlimited",
-      starter: "Unlimited",
-      professional: "Unlimited",
-    },
-    {
-      name: "Scheduled Pins per day",
-      free: "35 pins/day (1000/month)",
-      starter: "350 pins/day (10000/month)",
-      professional: "1000 pins/day (30000/month)",
-    },
-    {
-      name: "Regenerations",
-      free: "Unlimited",
-      starter: "Unlimited",
-      professional: "Unlimited",
-    },
-    {
-      name: "AI Pins per month",
-      free: "50",
-      starter: "150",
-      professional: "500",
-    },
-    {
-      name: "Delete underperforming pins",
-      free: "1 pin/day",
-      starter: "12 pins/day",
-      professional: "12 pins/day",
-    },
-    {
-      name: "AI Text & Board Generation",
-      free: "Unlimited",
-      starter: "Unlimited",
-      professional: "Unlimited",
-    },
-    {
-      name: "Auto-Create Pins daily",
-      free: false,
-      starter: false,
-      professional: true,
-    },
-    {
-      name: "Support",
-      free: "Standard",
-      starter: "Priority Support",
-      professional: "Urgent Support",
-    },
-    {
-      name: "Pinterest strategy call",
-      free: false,
-      starter: false,
-      professional: "30min Pinterest strategy call",
-    },
-    {
-      name: "Invite Team Members",
-      free: false,
-      starter: false,
-      professional: "Coming soon",
-    },
-    {
-      name: "Analytics Dashboard",
-      free: true,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "Top Pins",
-      free: true,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "Top Boards",
-      free: true,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "URL Analytics",
-      free: true,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "Template Analytics",
-      free: false,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "Color Analytics",
-      free: false,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "Resolution Analytics",
-      free: false,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "Template Library",
-      free: true,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "Upload Custom Fonts",
-      free: false,
-      starter: true,
-      professional: true,
-    },
-    {
-      name: "Upload Custom Template",
-      free: true,
-      starter: true,
-      professional: true,
-    },
-  ];
 
   return (
     <section
@@ -254,12 +255,12 @@ export function PricingSection() {
               type="h6"
               className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
             >
-              Choose the plan that's right for your business
+              Choose the plan that&apos;s right for your business
             </Typography>
           </div>
         </div>
         <div
-          className={`grid place-content-center px-4 transition-colors py-4`}
+          className="grid place-content-center px-4 transition-colors py-4"
         >
           <SliderToggle
             billingCycle={billingCycle}
@@ -343,9 +344,8 @@ export function PricingSection() {
                 {featureComparison.map((feature, index) => (
                   <tr
                     key={feature.name}
-                    className={`${
-                      index % 2 === 0 ? "bg-muted/50" : ""
-                    } border-b`}
+                    className={`${index % 2 === 0 ? "bg-muted/50" : ""
+                      } border-b`}
                   >
                     <td className="p-4 font-medium">{feature.name}</td>
                     <td
@@ -430,9 +430,8 @@ const SliderToggle: React.FC<SliderToggleProps> = ({
           }}
         >
           <span
-            className={`relative z-10 ${
-              billingCycle === "monthly" && "text-gray-100"
-            }`}
+            className={`relative z-10 ${billingCycle === "monthly" && "text-gray-100"
+              }`}
           >
             Monthly
           </span>
@@ -444,17 +443,15 @@ const SliderToggle: React.FC<SliderToggleProps> = ({
           }}
         >
           <span
-            className={`relative z-10 ${
-              billingCycle === "yearly" && "text-gray-100"
-            }`}
+            className={`relative z-10 ${billingCycle === "yearly" && "text-gray-100"
+              }`}
           >
             Yearly
           </span>
         </button>
         <div
-          className={`absolute inset-0 z-0 flex ${
-            billingCycle === "yearly" ? "justify-end" : "justify-start"
-          }`}
+          className={`absolute inset-0 z-0 flex ${billingCycle === "yearly" ? "justify-end" : "justify-start"
+            }`}
         >
           <motion.span
             layout
