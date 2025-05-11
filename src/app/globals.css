@@ -121,6 +121,20 @@
   }
 }
 
-html, body {
+html,
+body {
   @apply h-full w-full;
+}
+
+.bg-grid-pattern {
+  background-size: 100px 100px;
+}
+
+.dark .bg-grid-pattern {
+  background-image: linear-gradient(90deg, #ffffff0d 1px, #0000 0),
+    linear-gradient(#ffffff0d 1px, #0000 0);
+}
+.bg-grid-pattern {
+  background-image: linear-gradient(90deg, #0000001a 1px, #0000 0),
+    linear-gradient(#0000001a 1px, #0000 0);
 }

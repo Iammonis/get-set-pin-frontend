@@ -1,17 +1,40 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import HeroSection from "@/components/sections/hero-section";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import { PricingSection } from "@/components/sections/pricing-section";
+import CTASection from "@/components/sections/cta-section";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import FeaturesSection from "@/components/sections/features-section";
+import FAQSection from "@/components/sections/faq-section";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="">
-        <h1 className="text-3xl font-bold mb-4">Welcome to GetSetPin</h1>
-        <Link href="/login">
-          <Button>Login</Button>
-        </Link>
+    <div className="flex min-h-[100dvh] flex-col">
+      {/* Header */}
+      <Header />
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <HeroSection />
+
+        {/* Features Section */}
+        <FeaturesSection />
+
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+
+        {/* Pricing Section */}
+        <PricingSection />
+
+        {/* CTA Section */}
+        <CTASection />
+
+        {/* FAQ Section */}
+        <FAQSection />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
