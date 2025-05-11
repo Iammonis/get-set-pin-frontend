@@ -5,6 +5,7 @@ import { PricingSection } from "@/components/sections/PricingSection";
 import CTASection from "@/components/sections/CTASection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
+import FAQSection from "@/components/sections/FAQSection";
 
 export default function Home() {
   return (
@@ -27,6 +28,9 @@ export default function Home() {
 
         {/* CTA Section */}
         <CTASection />
+
+        {/* FAQ Section */}
+        <FAQSection />
       </main>
 
       {/* Footer */}
