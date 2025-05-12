@@ -31,6 +31,7 @@ import axiosInstance from "@/lib/axios";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { register } from "@/lib/api";
+import { createSession } from "@/lib/session";
 
 type SignupFormValues = z.infer<typeof signupFormSchema>;
 
@@ -68,7 +69,7 @@ const Signup = () => {
               "Login failed. Please check your credentials.";
             throw new Error(errorMessage);
           } else {
-            localStorage.setItem("token", response.accessToken);
+            createSession(response.accessToken);
             router.push("/dashboard");
             return response;
           }

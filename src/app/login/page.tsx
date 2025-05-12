@@ -28,6 +28,7 @@ import { loginFormSchema } from "@/lib/definations";
 import { useRouter } from "next/navigation";
 import { login } from "@/lib/api";
 import toast from "react-hot-toast";
+import { createSession } from "@/lib/session";
 
 type LoginFormValues = z.infer<typeof loginFormSchema>;
 
@@ -57,7 +58,7 @@ const Login = () => {
               "Login failed. Please check your credentials.";
             throw new Error(errorMessage);
           } else {
-            localStorage.setItem("token", response.accessToken);
+            createSession(response.accessToken);
             router.push("/dashboard");
             return response;
           }
