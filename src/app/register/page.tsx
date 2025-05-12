@@ -29,6 +29,8 @@ import { signupFormSchema } from "@/lib/definations";
 import { getApiUrl } from "@/lib/get-urls";
 import axiosInstance from "@/lib/axios";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { register } from "@/lib/api";
 
 type SignupFormValues = z.infer<typeof signupFormSchema>;
 
@@ -53,9 +55,43 @@ const Signup = () => {
     },
   });
 
-  const onSubmit = async (data: SignupFormValues) => { };
+  const onSubmit = async (data: SignupFormValues) => {
+    toast.promise(
+      (async () => {
+        setLoading(true);
+        try {
+          const response = await register(data.email, data.password);
+          // Check for custom error or unsuccessful response
+          if (!response.accessToken) {
+            const errorMessage =
+              response?.message ||
+              "Login failed. Please check your credentials.";
+            throw new Error(errorMessage);
+          } else {
+            localStorage.setItem("token", response.accessToken);
+            router.push("/dashboard");
+            return response;
+          }
+        } catch (error: any) {
+          // Throwing to trigger toast.promise's error state
+          throw new Error(
+            error?.response?.data?.message ||
+              error?.message ||
+              "Something went wrong during login."
+          );
+        } finally {
+          setLoading(false);
+        }
+      })(),
+      {
+        loading: "Creating Your Account...",
+        success: "Account Created & Logged in successfully!",
+        error: (err: Error) => err.message || "An unexpected error occurred.",
+      }
+    );
+  };
 
-  const handleGoogleSignIn = async () => { };
+  const handleGoogleSignIn = async () => {};
 
   return (
     <div className="w-full lg:grid lg:grid-cols-2 min-h-screen">
