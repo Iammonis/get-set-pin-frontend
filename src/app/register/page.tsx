@@ -53,9 +53,9 @@ const Signup = () => {
     },
   });
 
-  const onSubmit = async (data: SignupFormValues) => {};
+  const onSubmit = async (data: SignupFormValues) => { };
 
-  const handleGoogleSignIn = async () => {};
+  const handleGoogleSignIn = async () => { };
 
   return (
     <div className="w-full lg:grid lg:grid-cols-2 min-h-screen">

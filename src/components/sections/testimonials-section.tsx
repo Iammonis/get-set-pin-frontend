@@ -133,7 +133,7 @@ export function TestimonialsSection() {
               type="h6"
               className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
             >
-              Don't just take our word for it. Here's what our customers have to
+              Don&apos;t just take our word for it. Here&apos;s what our customers have to
               say.
             </Typography>
           </div>
