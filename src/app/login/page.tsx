@@ -26,6 +26,8 @@ import {
 import Image from "next/image";
 import { loginFormSchema } from "@/lib/definations";
 import { useRouter } from "next/navigation";
+import { login } from "@/lib/api";
+import toast from "react-hot-toast";
 
 type LoginFormValues = z.infer<typeof loginFormSchema>;
 
@@ -42,7 +44,41 @@ const Login = () => {
     },
   });
 
-  const onSubmit = async (data: LoginFormValues) => {};
+  const onSubmit = async (data: LoginFormValues) => {
+    toast.promise(
+      (async () => {
+        setLoading(true);
+        try {
+          const response = await login(data.email, data.password);
+          // Check for custom error or unsuccessful response
+          if (!response.accessToken) {
+            const errorMessage =
+              response?.message ||
+              "Login failed. Please check your credentials.";
+            throw new Error(errorMessage);
+          } else {
+            localStorage.setItem("token", response.accessToken);
+            router.push("/dashboard");
+            return response;
+          }
+        } catch (error: any) {
+          // Throwing to trigger toast.promise's error state
+          throw new Error(
+            error?.response?.data?.message ||
+              error?.message ||
+              "Something went wrong during login."
+          );
+        } finally {
+          setLoading(false);
+        }
+      })(),
+      {
+        loading: "Logging you in...",
+        success: "Logged in successfully!",
+        error: (err: Error) => err.message || "An unexpected error occurred.",
+      }
+    );
+  };
 
   const handleGoogleSignIn = async () => {};
 
