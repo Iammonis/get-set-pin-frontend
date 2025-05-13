@@ -3,15 +3,17 @@
 // Variables: camelCase → e.g., sidebarData, protectedRoutes
 // Types/Interfaces: PascalCase → e.g., NavItem, NavGroup
 
+import { sidebarData } from "@/constants/sidebar";
+
 // Interfaces
 interface NavItem {
   href?: string;
   items?: NavItem[];
 }
 
-// interface NavGroup {
-//     items: NavItem[];
-// }
+interface NavGroup {
+  items: NavItem[];
+}
 
 // Helper function to recursively extract hrefs
 function extractUrls(items: NavItem[]): string[] {
@@ -30,9 +32,9 @@ export const defaultDashboardUrl = "/dashboard";
 
 export const protectedUrls: string[] = [
   defaultDashboardUrl,
-  //   ...sidebarData.navGroups.flatMap((group: NavGroup) =>
-  //     extractUrls(group.items)
-  //   ),
+  ...sidebarData.navGroups.flatMap((group: NavGroup) =>
+    extractUrls(group.items)
+  ),
 ];
 
 export const publicUrls: string[] = ["/", "/pricing", "/features"];
