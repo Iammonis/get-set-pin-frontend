@@ -21,7 +21,7 @@ import { Filters, PinterestAccount } from "@/types/accounts";
 import ConnectedAccountCard from "@/components/cards/connected-account-card";
 import { COOKIE_KEY } from "@/constants";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -58,6 +58,7 @@ const Accounts = () => {
       },
     ],
     isLoading,
+    error,
   } = useQuery<PinterestAccount[], Error>({
     queryKey: ["pinterest-accounts"],
     queryFn: async () => {
@@ -70,12 +71,14 @@ const Accounts = () => {
       if (!response.ok) throw new Error("Failed to fetch Pinterest accounts");
       return response.json();
     },
-    onError: (error: unknown) => {
+  });
+  useEffect(() => {
+    if (error) {
       const message =
         error instanceof Error ? error.message : "Failed to fetch accounts";
       toast.error(message);
-    },
-  });
+    }
+  }, [error]);
 
   const connectAccountMutation = useMutation({
     mutationFn: async () => {
