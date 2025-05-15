@@ -92,9 +92,9 @@ export const sidebarData: SidebarData = {
               href: `/dashboard/settings/appearance`,
             },
             {
-              title: "Account",
+              title: "Accounts",
               icon: <Wrench size={18} />,
-              href: `/dashboard/settings/account`,
+              href: `/dashboard/settings/accounts`,
             },
             {
               title: "Appearance",

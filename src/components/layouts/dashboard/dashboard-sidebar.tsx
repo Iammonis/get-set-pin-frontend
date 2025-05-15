@@ -71,7 +71,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
       <SidebarInset className="border-l">
         <DashboardHeader />
-        <div className="p-2 lg:p-4 bg-secondary min-h-[calc(100vh-3.52rem)]">
+        <div className="p-2 lg:p-4 bg-background min-h-[calc(100vh-3.52rem)]">
           {children}
         </div>
       </SidebarInset>
