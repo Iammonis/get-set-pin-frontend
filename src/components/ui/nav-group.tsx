@@ -125,7 +125,7 @@ const SidebarMenuLink = ({
           onClick={() => setOpenMobile(false)}
         >
           {item.icon}
-          <Typography>{item.title}</Typography>
+          <Typography type="span">{item.title}</Typography>
           {item.badge && <NavBadge>{item.badge}</NavBadge>}
         </Link>
       </SidebarMenuButton>
@@ -156,7 +156,7 @@ const SidebarMenuCollapsible = ({
         >
           <SidebarMenuButton tooltip={item.title}>
             {item.icon}
-            <Typography>{item.title}</Typography>
+            <Typography type="span">{item.title}</Typography>
             {item.badge && <NavBadge>{item.badge}</NavBadge>}
             <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
           </SidebarMenuButton>
@@ -175,7 +175,7 @@ const SidebarMenuCollapsible = ({
                     className="flex items-center"
                   >
                     {subItem.icon}
-                    <Typography>{subItem.title}</Typography>
+                    <Typography type="span">{subItem.title}</Typography>
                     {subItem.badge && <NavBadge>{subItem.badge}</NavBadge>}
                   </Link>
                 </SidebarMenuSubButton>
@@ -207,14 +207,14 @@ const SidebarMenuCollapsedDropdown = ({
             className={`${state === "collapsed" ? " border" : ""}`}
           >
             {item.icon}
-            <Typography>{item.title}</Typography>
+            <Typography type="span">{item.title}</Typography>
             {item.badge && <NavBadge>{item.badge}</NavBadge>}
             <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent side="right" align="start" sideOffset={4}>
           <DropdownMenuLabel>
-            <Typography>{item.title}</Typography>
+            <Typography type="span">{item.title}</Typography>
             {item.badge ? `(${item.badge})` : ""}
           </DropdownMenuLabel>
           <DropdownMenuSeparator />

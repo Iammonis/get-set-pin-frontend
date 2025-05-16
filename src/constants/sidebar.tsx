@@ -1,26 +1,20 @@
 import {
-  Bell,
-  HelpCircle,
-  Palette,
-  Settings,
-  Sparkles,
-  User,
-  WandSparkles,
-  Wrench,
   Home,
   Calendar,
   BarChart3,
-  Upload,
-  File,
-  Database,
+  WandSparkles,
+  Settings,
+  HelpCircle,
+  Bookmark,
+  PlusSquare,
+  Link,
 } from "lucide-react";
-import { ReactNode } from "react";
 
 interface SidebarItem {
   title: string;
-  icon?: ReactNode;
-  href?: string;
-  items?: SidebarItem[]; // recursive nesting
+  href: string;
+  icon: React.ReactNode;
+  badge?: string;
 }
 
 interface SidebarGroup {
@@ -38,44 +32,34 @@ export const sidebarData: SidebarData = {
       title: "General",
       items: [
         {
-          title: "Dashboard",
+          title: "Home",
           href: "/dashboard",
           icon: <Home className="text-current-font-size" />,
         },
         {
-          title: "Calendar",
-          href: `/dashboard/calendar`,
-          icon: <Calendar className="text-current-font-size" />,
+          title: "My Pins",
+          href: "/dashboard/pins",
+          icon: <Bookmark className="text-current-font-size" />, // Using Bookmark for "Pins"
         },
         {
-          title: "Analytics",
-          href: `/dashboard/analytics`,
-          icon: <BarChart3 className="text-current-font-size" />,
+          title: "My Boards",
+          href: "/dashboard/boards",
+          icon: <BarChart3 className="text-current-font-size" />, // Or use <LayoutGrid /> for boards
         },
         {
-          title: "AI Pin",
-          href: `/dashboard/ai-pin`,
-          icon: <WandSparkles className="text-current-font-size" />,
+          title: "Create/Schedule Pin",
+          href: "/dashboard/create-pin",
+          icon: <PlusSquare className="text-current-font-size" />, // Or <WandSparkles /> for "Create"
         },
         {
-          title: "Upload Pins",
-          href: `/dashboard/upload-pins`,
-          icon: <Upload className="text-current-font-size" />,
+          title: "Connect Pinterest Accounts",
+          href: "/dashboard/connect-accounts",
+          icon: <Link className="text-current-font-size" />, // Using Link for "Connect"
         },
         {
-          title: "Pages",
-          href: `/dashboard/pages`,
-          icon: <File className="text-current-font-size" />,
-        },
-        {
-          title: "Playground",
-          href: `/dashboard/playground`,
-          icon: <Sparkles className="text-current-font-size" />,
-        },
-        {
-          title: "Storage",
-          href: `/dashboard/storage`,
-          icon: <Database className="text-current-font-size" />,
+          title: "Settings",
+          href: "/dashboard/settings",
+          icon: <Settings className="text-current-font-size" />,
         },
       ],
     },
@@ -83,35 +67,9 @@ export const sidebarData: SidebarData = {
       title: "Other",
       items: [
         {
-          title: "Settings",
-          icon: <Settings />,
-          items: [
-            {
-              title: "Profile",
-              icon: <User />,
-              href: `/dashboard/settings/appearance`,
-            },
-            {
-              title: "Account",
-              icon: <Wrench size={18} />,
-              href: `/dashboard/settings/accounts`,
-            },
-            {
-              title: "Appearance",
-              icon: <Palette size={18} />,
-              href: `/dashboard/settings/appearance`,
-            },
-            {
-              title: "Notifications",
-              icon: <Bell size={18} />,
-              href: `/dashboard/settings/notifications-preferences`,
-            },
-          ],
-        },
-        {
           title: "Help Center",
-          href: `/dashboard/help-center`,
-          icon: <HelpCircle />,
+          href: "/dashboard/help-center",
+          icon: <HelpCircle className="text-current-font-size" />,
         },
       ],
     },
