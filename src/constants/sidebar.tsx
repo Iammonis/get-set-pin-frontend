@@ -94,7 +94,7 @@ export const sidebarData: SidebarData = {
             {
               title: "Account",
               icon: <Wrench size={18} />,
-              href: `/dashboard/settings/account`,
+              href: `/dashboard/settings/accounts`,
             },
             {
               title: "Appearance",
