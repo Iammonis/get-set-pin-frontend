@@ -7,6 +7,7 @@ export interface PinterestProfile {
   username: string;
   accountType: string;
   profileImage: string;
+  isDefault?: boolean;
 }
 
 export const fetchPinterestAccounts = async (): Promise<PinterestProfile[]> => {
