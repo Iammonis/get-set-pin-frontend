@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import PinterestprofileSkeletonCard from "@/components/loading-sekelton/h/pinterest-profile-skeleton";
+import PinterestProfileSkeletonCard from "@/components/loading-sekelton/h/pinterest-profile-skeleton";
 import PinterestProfileCard from "@/components/cards/pinterest-profile-card";
 import SimplePagination from "@/components/ui/simple-pagination";
 
@@ -59,9 +59,7 @@ export default function Accounts() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <Typography type="h2">Linked Pinterest Accounts</Typography>
-        <Button
-          onClick={handleAddAccount}
-        >
+        <Button onClick={handleAddAccount}>
           <PlusIcon className="mr-2 h-4 w-4" />
           Add Pinterest Account
         </Button>
@@ -101,7 +99,7 @@ export default function Accounts() {
         {isPinterestAccountsLoading ? (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, idx) => (
-              <PinterestprofileSkeletonCard key={idx} />
+              <PinterestProfileSkeletonCard key={idx} />
             ))}
           </div>
         ) : Array.isArray(pinterestAccountsData) &&

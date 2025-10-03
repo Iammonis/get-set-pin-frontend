@@ -2,10 +2,9 @@ import React from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
-
-const PinterestprofileSkeletonCard = ({ key }: { key: any }) => {
+const PinterestProfileSkeletonCard = () => {
   return (
-    <Card key={key}>
+    <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <div className="flex items-center space-x-4">
           <Skeleton className="h-10 w-10 rounded-full" />
@@ -25,4 +24,4 @@ const PinterestprofileSkeletonCard = ({ key }: { key: any }) => {
   );
 };
 
-export default PinterestprofileSkeletonCard;
+export default PinterestProfileSkeletonCard;
