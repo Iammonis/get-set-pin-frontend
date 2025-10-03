@@ -1,3 +1,4 @@
+'use client';
 import HeroSection from "@/components/sections/hero-section";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -10,30 +11,15 @@ import FAQSection from "@/components/sections/faq-section";
 export default function Home() {
   return (
     <div className="flex min-h-[100dvh] flex-col">
-      {/* Header */}
       <Header />
-
       <main className="flex-1">
-        {/* Hero Section */}
         <HeroSection />
-
-        {/* Features Section */}
         <FeaturesSection />
-
-        {/* Testimonials Section */}
         <TestimonialsSection />
-
-        {/* Pricing Section */}
         <PricingSection />
-
-        {/* CTA Section */}
         <CTASection />
-
-        {/* FAQ Section */}
         <FAQSection />
       </main>
-
-      {/* Footer */}
       <Footer />
     </div>
   );
