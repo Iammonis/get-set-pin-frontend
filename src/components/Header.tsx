@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Zap } from "lucide-react";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Menu, Zap } from "lucide-react"
 
 export default function Header() {
   const navLinks = [
@@ -11,7 +11,7 @@ export default function Header() {
     { label: "Testimonials", href: "#testimonials" },
     { label: "Pricing", href: "#pricing" },
     { label: "Contact", href: "#contact" },
-  ];
+  ]
 
   return (
     <header className="sticky top-6 inset-x-4 z-50 w-[90%] md:w-full border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 max-w-screen-xl mx-auto rounded-full">
@@ -40,9 +40,7 @@ export default function Header() {
           <Link href="/login">
             <Button variant="outline">Sign In</Button>
           </Link>
-          <Link href="/register">
-            <Button>Get Started</Button>
-          </Link>
+          <Button>Get Started</Button>
         </div>
 
         {/* Mobile Menu */}
@@ -69,14 +67,12 @@ export default function Header() {
                     Sign In
                   </Button>
                 </Link>
-                <Link href="/register">
-                  <Button className="w-full">Get Started</Button>
-                </Link>
+                <Button className="w-full">Get Started</Button>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
     </header>
-  );
+  )
 }
